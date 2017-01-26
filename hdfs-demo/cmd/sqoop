@@ -1,0 +1,3 @@
+sqoop import --connect jdbc:mysql://localhost:3306/energydata --username root --table average_price_by_state -m 1
+
+sqoop import --connect jdbc:mysql://localhost:3306/energydata --username root --table average_price_by_state --hive-import --fields-terminated-by ',' --lines-terminated-by '\n' --null-string 'null' -m 1

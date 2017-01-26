@@ -1,0 +1,29 @@
+mysql -u root -p
+
+drop schema if exists energydata;
+
+CREATE DATABASE energydata;
+
+GRANT ALL PRIVILEGES ON energydata.* TO '%'@'localhost';
+GRANT ALL PRIVILEGES ON energydata.* TO ''@'localhost';
+USE energydata;
+CREATE TABLE average_price_by_state(
+    year INT NOT NULL,
+    state VARCHAR(5) NOT NULL,
+    sector VARCHAR(255),
+    residential DECIMAL(10,2),
+    commercial DECIMAL(10,2),
+    industrial DECIMAL(10,2),
+    transportation DECIMAL(10,2),
+    other DECIMAL(10,2),
+    total DECIMAL(10,2)
+);
+quit;
+
+mysql -h localhost -u root -p energydata --local-infile=1
+LOAD DATA LOCAL INFILE
+    '/home/training/workspace/hdfs-demo/data/avgprice_kwh_state.csv'
+    INTO TABLE average_price_by_state
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n' IGNORE 1 LINES;
+quit;
