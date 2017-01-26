@@ -1,0 +1,19 @@
+HDFS Command Sheet
+
+hadoop fs -help
+
+hadoop fs -copyFromLocal /home/training/workspace/hdfs-demo/data/Gitanjali-Tagore.txt Gitanjali.txt
+
+hadoop fs -put /home/training/workspace/hdfs-demo/data/Gitanjali-Tagore.txt hdfs://localhost/user/training/Gitanjali.txt
+
+hadoop fs -ls
+
+hadoop fs -cat Gitanjali.txt | less
+
+hadoop fs -tail Gitanjali.txt | less
+
+hadoop fs –chmod 664 Gitanjali.txt
+
+hadoop fs -rm Gitanjali.txt
+
+
