@@ -23,7 +23,7 @@ public class HDFSJavaAPIDemo {
 		FileSystem fileSystem = FileSystem.get(conf);
 		System.out.println(fileSystem.getUri());
 
-		Path file = new Path("/home/training/workspace/hdfs-demo/data/Gitanjali-Tagore.txt");
+		Path file = new Path("/home/cloudera/git/BA-BEAD-HDFS/hdfs-demo/data/Gitanjali-Tagore.txt");
 		Path f = new Path("Gitanjali-Tagore.txt");
 		if (fileSystem.exists(file)) {
 			System.out.println("File exists.");
